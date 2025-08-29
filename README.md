@@ -1,42 +1,75 @@
-# wall_following_bot (ROS 2)
+# Wall Following Bot (ROS 2)
 
-Wall-following with obstacle avoidance for TurtleBot3 in Gazebo.  
-Package: `wall_following_bot` • Node: `follower_node` • Launch: `launch/follower_node.launch.py`
-
----
-
-## ✅ Features
-- Follows walls using `/scan` (LaserScan)
-- Basic obstacle avoidance behavior
-- Gazebo simulation with TurtleBot3 (Stage1 world)
-- ROS 2-native Python node
+This project is a simple **wall-following robot with obstacle avoidance** built in ROS 2.  
+It runs in **Gazebo** with **TurtleBot3**, subscribes to `/scan`, and publishes velocity commands to `/cmd_vel`.
 
 ---
 
-## 🧰 Prerequisites
-- ROS 2 (Humble/Foxy/etc.) with `colcon`
-- `turtlebot3_gazebo` installed
-- Python 3.x
-
-> If you use TurtleBot3, set the model (e.g., `burger`, `waffle`, `waffle_pi`).
+## Features
+- Follows walls in the TurtleBot3 Stage1 world
+- Detects obstacles (manually dropped cubes in Gazebo)
+- Avoids collisions and resumes wall-following
+- Clean Python implementation (`follower_node.py`)
 
 ---
 
-## 📦 Build
-
-Clone into a ROS 2 workspace (example here uses `~/iki_workspace/iki_workspace`):
+## Setup
 
 ```bash
-# 1) Create or use an existing workspace
-mkdir -p ~/iki_workspace/iki_workspace/src
-cd ~/iki_workspace/iki_workspace/src
+# create a workspace (if you don’t already have one)
+mkdir -p ~/wall_follower_new/src
+cd ~/wall_follower_new/src
 
-# 2) Clone this repo
+# clone this repo
 git clone https://github.com/prajwalsanvatsarkar/wall_following_bot_ros2.git
 
-# 3) Build
+# build
 cd ..
 colcon build --symlink-install
 
-# 4) Source
+# source it
 source install/setup.bash
+
+
+## This launch starts Gazebo with TurtleBot3 Stage1 and then launches the wall-following node after a short delay (to give you time to drop cubes).
+# in a terminal
+cd ~/wall_follower_new
+source install/setup.bash
+
+# set turtlebot3 model
+export TURTLEBOT3_MODEL=burger
+
+# avoid DDS multicast warnings
+export ROS_LOCALHOST_ONLY=1
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_DOMAIN_ID=7
+
+# launch it
+ros2 launch wall_following_bot follower_node.launch.py
+
+## Topics
+# subscribes: /scan (sensor_msgs/LaserScan)
+
+# publishes: /cmd_vel (geometry_msgs/Twist)
+
+## Repo layout
+wall_following_bot_ros2/
+├─ wall_following_bot/
+│  ├─ launch/
+│  │   └─ follower_node.launch.py
+│  ├─ wall_following_bot/
+│  │   └─ follower_node.py
+│  ├─ package.xml
+│  ├─ setup.py
+│  ├─ setup.cfg
+│  └─ resource/
+│      └─ wall_following_bot
+└─ README.md
+
+## License
+
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
+## Author
+Built by Prajwal Sanvatsarkar
+
