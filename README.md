@@ -51,9 +51,12 @@ export ROS_DOMAIN_ID=7
 ros2 launch wall_following_bot follower_node.launch.py```
 ```
 ## Topics
+```bash
 # subscribes: /scan (sensor_msgs/LaserScan)
-
+```
+```bash
 # publishes: /cmd_vel (geometry_msgs/Twist)
+```
 
 ## Repo layout
 ```bash
