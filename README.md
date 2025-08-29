@@ -28,15 +28,17 @@ cd ..
 colcon build --symlink-install
 
 # source it
-source install/setup.bash```
-
+source install/setup.bash
+```
 
 ## This launch starts Gazebo with TurtleBot3 Stage1 and then launches the wall-following node after a short delay (to give you time to drop cubes).
-```bash
+
 # in a terminal
+```bash
 cd ~/wall_follower_new
 source install/setup.bash
 
+`
 # set turtlebot3 model
 export TURTLEBOT3_MODEL=burger
 
@@ -47,7 +49,7 @@ export ROS_DOMAIN_ID=7
 
 # launch it
 ros2 launch wall_following_bot follower_node.launch.py```
-
+```
 ## Topics
 # subscribes: /scan (sensor_msgs/LaserScan)
 
@@ -66,7 +68,8 @@ wall_following_bot_ros2/
 │  ├─ setup.cfg
 │  └─ resource/
 │      └─ wall_following_bot
-└─ README.md```
+└─ README.md
+```
 
 ## License
 ```bash
