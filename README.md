@@ -32,7 +32,7 @@ source install/setup.bash```
 
 
 ## This launch starts Gazebo with TurtleBot3 Stage1 and then launches the wall-following node after a short delay (to give you time to drop cubes).
-```
+```bash
 # in a terminal
 cd ~/wall_follower_new
 source install/setup.bash
@@ -54,7 +54,8 @@ ros2 launch wall_following_bot follower_node.launch.py```
 # publishes: /cmd_vel (geometry_msgs/Twist)
 
 ## Repo layout
-```wall_following_bot_ros2/
+```bash
+wall_following_bot_ros2/
 ├─ wall_following_bot/
 │  ├─ launch/
 │  │   └─ follower_node.launch.py
@@ -68,10 +69,10 @@ ros2 launch wall_following_bot follower_node.launch.py```
 └─ README.md```
 
 ## License
-```
+```bash
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 ```
 ## Author
-```
+```bash
 Built by Prajwal Sanvatsarkar
 ```
