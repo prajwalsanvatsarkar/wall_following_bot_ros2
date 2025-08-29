@@ -32,13 +32,11 @@ source install/setup.bash
 ```
 
 ## This launch starts Gazebo with TurtleBot3 Stage1 and then launches the wall-following node after a short delay (to give you time to drop cubes).
-
-# in a terminal
 ```bash
+# in a terminal
 cd ~/wall_follower_new
 source install/setup.bash
 
-`
 # set turtlebot3 model
 export TURTLEBOT3_MODEL=burger
 
