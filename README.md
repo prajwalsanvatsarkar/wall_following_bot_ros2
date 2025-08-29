@@ -28,12 +28,12 @@ cd ..
 colcon build --symlink-install
 
 # source it
-source install/setup.bash
+source install/setup.bash'''
 
 
 ## This launch starts Gazebo with TurtleBot3 Stage1 and then launches the wall-following node after a short delay (to give you time to drop cubes).
 # in a terminal
-cd ~/wall_follower_new
+'''cd ~/wall_follower_new
 source install/setup.bash
 
 # set turtlebot3 model
@@ -45,7 +45,7 @@ export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 export ROS_DOMAIN_ID=7
 
 # launch it
-ros2 launch wall_following_bot follower_node.launch.py
+ros2 launch wall_following_bot follower_node.launch.py'''
 
 ## Topics
 # subscribes: /scan (sensor_msgs/LaserScan)
@@ -53,7 +53,7 @@ ros2 launch wall_following_bot follower_node.launch.py
 # publishes: /cmd_vel (geometry_msgs/Twist)
 
 ## Repo layout
-wall_following_bot_ros2/
+'''wall_following_bot_ros2/
 ├─ wall_following_bot/
 │  ├─ launch/
 │  │   └─ follower_node.launch.py
@@ -64,12 +64,13 @@ wall_following_bot_ros2/
 │  ├─ setup.cfg
 │  └─ resource/
 │      └─ wall_following_bot
-└─ README.md
+└─ README.md'''
 
 ## License
-
+'''
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
-
+'''
 ## Author
+'''
 Built by Prajwal Sanvatsarkar
-
+'''
